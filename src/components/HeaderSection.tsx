@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Stars from "./AtomComponents/Stars";
+import { FadeLeft } from "./FramerMotion/Animation";
 
 export interface HeaderSectionProps {
   title: string;
@@ -9,7 +10,7 @@ export interface HeaderSectionProps {
 }
 const HeaderSection = ({ title, description, children, className }: HeaderSectionProps) => {
   return (
-    <div className={`flex flex-col md:flex-row md:items-end justify-between gap-20 md:gap-5 ${className}`}>
+    <FadeLeft className={`flex flex-col md:flex-row md:items-end justify-between gap-20 md:gap-5 ${className}`}>
       <div className="relative md:max-w-975 min-[1440px]:max-w-1200">
         <Stars />
         <h1 className="mt-8 text-3xl md:text-4xl font-semibold mb-6 md:mb-10 text-white light:text-grey-10">
@@ -25,7 +26,7 @@ const HeaderSection = ({ title, description, children, className }: HeaderSectio
           {children}
         </div>
       )}
-    </div>
+    </FadeLeft>
   );
 };
 

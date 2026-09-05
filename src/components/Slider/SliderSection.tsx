@@ -5,6 +5,7 @@ import { SliderControls } from "../Slider/SliderControls";
 import Button from "../AtomComponents/Button";
 import type { HeaderProp } from "../../types/sliderType";
 import Stars from "../AtomComponents/Stars";
+import { FadeLeft } from "../FramerMotion/Animation";
 
 
 
@@ -57,20 +58,20 @@ function SliderSection({
   const formattedCurrent = String(currentIndex + 1).padStart(2, "0");
   const formattedTotal = String(totalItems).padStart(2, "0");
 
-const isPropertiesButton = buttonContent === "View All Properties";
+  const isPropertiesButton = buttonContent === "View All Properties";
 
-const actionButton = (
-  <Button
-    content={showAll ? "Show Less" : buttonContent ?? "View All"}
-    href={isPropertiesButton ? "/properties" : undefined}
-    onClick={
-      isPropertiesButton
-        ? undefined
-        : () => setShowAll((prev) => !prev)
-    }
-    className="font-semibold text-white light:text-grey-08 text-sm md:text-base bg-grey-10 light:bg-white-95 border border-grey-15 light:border-white-90 hover:bg-grey-15 light:hover:bg-purple-75"
-  />
-);
+  const actionButton = (
+    <Button
+      content={showAll ? "Show Less" : buttonContent ?? "View All"}
+      href={isPropertiesButton ? "/properties" : undefined}
+      onClick={
+        isPropertiesButton
+          ? undefined
+          : () => setShowAll((prev) => !prev)
+      }
+      className="font-semibold text-white light:text-grey-08 text-sm md:text-base bg-grey-10 light:bg-white-95 border border-grey-15 light:border-white-90 hover:bg-grey-15 light:hover:bg-purple-75"
+    />
+  );
   const gridStyle = {
     "--mobile-cols": `repeat(${mobileCards}, minmax(0, 1fr))`,
     "--tablet-cols": `repeat(${tabletCards}, minmax(0, 1fr))`,
@@ -79,57 +80,57 @@ const actionButton = (
 
   return (
     <section className="relative">
-      <Stars/>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 md:pt-6 lg:pt-10 mb-40 md:mb-60 lg:mb-80">
-          <div className="md:max-w-975 2xl:max-w-1200 ">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold  mb-6 md:mb-10 lg:mb-14 text-white light:text-grey-08"> {title} </h1>
-            <p className="text-sm md:text-base lg:text-lg 2xl:text-lg text-grey-60 light:text-grey-40 font-medium "> {desc} </p>
-          </div>
-          {showButton && (
-            <div className="hidden md:block shrink-0">{actionButton} </div>
-          )}
+      <Stars />
+      <FadeLeft className="flex flex-col md:flex-row md:items-end justify-between gap-5 md:pt-6 lg:pt-10 mb-40 md:mb-60 lg:mb-80">
+        <div className="md:max-w-975 2xl:max-w-1200 ">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold  mb-6 md:mb-10 lg:mb-14 text-white light:text-grey-08"> {title} </h1>
+          <p className="text-sm md:text-base lg:text-lg 2xl:text-lg text-grey-60 light:text-grey-40 font-medium "> {desc} </p>
         </div>
-        {showAll ? (
-          <div className="grid gap-20 grid-cols-(--mobile-cols) md:grid-cols-(--tablet-cols)  lg:grid-cols-(--desktop-cols) "style={gridStyle} >
-            {children}
-          </div>
-        ) : (
-          <Slider
-            currentIndex={currentIndex}
-            gap={20}
-            desktopCards={desktopCards}
-            tabletCards={tabletCards}
-            mobileCards={mobileCards}
-            onVisibleCardsChange={handleVisibleCardsChange}>
-            {children}
-          </Slider>
+        {showButton && (
+          <div className="hidden md:block shrink-0">{actionButton} </div>
         )}
+      </FadeLeft>
+      {showAll ? (
+        <div className="grid gap-20 grid-cols-(--mobile-cols) md:grid-cols-(--tablet-cols)  lg:grid-cols-(--desktop-cols) " style={gridStyle} >
+          {children}
+        </div>
+      ) : (
+        <Slider
+          currentIndex={currentIndex}
+          gap={20}
+          desktopCards={desktopCards}
+          tabletCards={tabletCards}
+          mobileCards={mobileCards}
+          onVisibleCardsChange={handleVisibleCardsChange}>
+          {children}
+        </Slider>
+      )}
 
-        {!showAll && (
-          <div className="border-t border-grey-15 light:border-white-90 flex items-center justify-between gap-4 pt-16">
-            <div className="hidden md:block text-grey-60 light:text-grey-40 text-base 2xl:text-xl font-medium px-1">
-              <span className="text-white light:text-grey-08">{formattedCurrent}</span>{" "} of{" "}{formattedTotal} </div>
-            <div
-              className={showButton ? "flex items-center gap-3 w-full md:w-auto justify-between md:justify-end"
-                                    : "flex items-center w-full md:w-auto"}  >
-              {showButton && (
-                <div className="block md:hidden">{actionButton} </div>
-              )}
+      {!showAll && (
+        <div className="border-t border-grey-15 light:border-white-90 flex items-center justify-between gap-4 pt-16">
+          <div className="hidden md:block text-grey-60 light:text-grey-40 text-base 2xl:text-xl font-medium px-1">
+            <span className="text-white light:text-grey-08">{formattedCurrent}</span>{" "} of{" "}{formattedTotal} </div>
+          <div
+            className={showButton ? "flex items-center gap-3 w-full md:w-auto justify-between md:justify-end"
+              : "flex items-center w-full md:w-auto"}  >
+            {showButton && (
+              <div className="block md:hidden">{actionButton} </div>
+            )}
 
-              <SliderControls
-                canPrev={canPrev}
-                canNext={canNext}
-                onPrev={prev}
-                onNext={next}
-                formattedCurrent={formattedCurrent}
-                formattedTotal={formattedTotal}
-                showNumberBetween
-                fullWidth={!showButton}
-              />
-            </div>
+            <SliderControls
+              canPrev={canPrev}
+              canNext={canNext}
+              onPrev={prev}
+              onNext={next}
+              formattedCurrent={formattedCurrent}
+              formattedTotal={formattedTotal}
+              showNumberBetween
+              fullWidth={!showButton}
+            />
           </div>
-        )}
-      </section>
+        </div>
+      )}
+    </section>
   );
 }
 

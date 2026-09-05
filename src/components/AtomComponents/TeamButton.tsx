@@ -1,4 +1,4 @@
-import telegram from "../../../public/assets/icons/ShareImage.png";
+import telegram from "/assets/icons/ShareImage.png";
 
 function TeamButton() {
     return (
