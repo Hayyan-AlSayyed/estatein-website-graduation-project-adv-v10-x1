@@ -29,14 +29,7 @@ type FormSelectValues = {
 };
 
 
-const FormSelect = ({
-    Icone,
-    FilterText,
-    name,
-    value,
-    onChange,
-    options,
-}: {
+const FormSelect = ({ Icone, FilterText, name, value, onChange, options, }: {
     Icone: JSX.Element;
     FilterText: string;
     name: keyof FormSelectValues;
@@ -49,17 +42,14 @@ const FormSelect = ({
             <span className="text-base lg:text-xl font-semibold text-white light:text-grey-08 mb-10 md:mb-14 lg:mb-16 font-urbanist">
                 {FilterText}
             </span>
-
             <div
                 className="
-                    [&_.filter-info]:!w-full
+                    [&_.filter-info]:w-full
                     [&_.filter-info]:!p-0
                     [&_.filter-info]:!bg-transparent
                     [&_.filter-info]:!rounded-none
                     [&_.filter-info]:!gap-0
-
                     [&_.icone]:!hidden
-
                     [&_select]:!w-full
                     [&_select]:!rounded-md
                     lg:[&_select]:!rounded-lg
@@ -74,7 +64,6 @@ const FormSelect = ({
                     [&_select]:!text-white
                     [&_select]:!text-base
                     [&_select]:!outline-none
-
                     [&_select]:light:!border-white-90
                     [&_select]:light:!bg-white-95
                     [&_select]:light:!text-grey-08
@@ -172,8 +161,8 @@ const Form = ({
     };
 
     return (
-        <div className="mx-auto my-60 max-w-[1597px] px-16 lg:px-0">
-            <div className="flex flex-col gap-[30px] lg:gap-[50px] rounded-2xl px-16 py-30 sm:px-30 sm:py-40 md:px-50 md:py-60 lg:p-[100px]">
+        <div className="w-full max-w-1900 mx-auto px-16 sm:px-32 mt-100  md:px-48 lg:px-64 xl:px-80 2xl:px-160 pb-80 md:pb-120 lg:pb-150 undefined">
+            <div className="flex flex-col gap-[30px] lg:gap-[50px] rounded-2xl">
                 <div className="relative">
                     <div className="flex items-center gap-6 mb-10 text-grey-40 light:text-grey-20">
                         <Stars />
@@ -214,7 +203,6 @@ const Form = ({
                                     type="email"
                                     placeholder="Enter your Email"
                                     error={errors.email}
-                                    className="!py-8 lg:!py-10"
                                 />
 
                                 <InputCard
@@ -223,7 +211,6 @@ const Form = ({
                                     type="tel"
                                     placeholder="Enter Phone Number"
                                     error={errors.phone}
-                                    className="!py-8 lg:!py-10"
                                 />
 
                             </div>
@@ -298,82 +285,27 @@ const Form = ({
 
                                 <div className="lg:col-span-2 flex flex-col gap-10 text-white light:text-grey-08">
 
-                                    <span className="text-sm font-medium">
-                                        Preferred Contact Method
-                                    </span>
-
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
 
-                                        <label
-                                            className={`flex items-center gap-10 rounded-lg border px-20 py-16 cursor-pointer transition bg-grey-10 light:bg-white-95 ${
-                                                contactMethod === "phone"
-                                                    ? "border-purple-60"
-                                                    : "border-grey-15 light:border-white-90"
-                                            }`}
-                                        >
-                                            <FaPhoneAlt
-                                                size={18}
-                                                className="text-grey-40 light:text-grey-20 shrink-0"
-                                            />
+                                        <InputCard
+                                            name="contactMethod"
+                                            type="radio"
+                                            value="phone"
+                                            label=" Preferred Contact Method"
+                                            icon={<FaPhoneAlt/>}
+                                            radioPlaceholder="enter your number"
+                                            onChange={() => setContactMethod("phone")}
+                                        />
 
-                                            <input
-                                                type="tel"
-                                                name="preferredPhone"
-                                                placeholder="Enter Your Number"
-                                                disabled={
-                                                    contactMethod !== "phone"
-                                                }
-                                                className="flex-1 bg-transparent outline-none text-white light:text-grey-08 placeholder:text-grey-40 light:placeholder:text-grey-20 disabled:opacity-50"
-                                            />
-
-                                            <input
-                                                type="radio"
-                                                name="contactMethod"
-                                                value="phone"
-                                                checked={
-                                                    contactMethod === "phone"
-                                                }
-                                                onChange={() =>
-                                                    setContactMethod("phone")
-                                                }
-                                                className="w-16 h-16 accent-purple-60"
-                                            />
-                                        </label>
-                                        <label
-                                            className={`flex items-center gap-10 rounded-lg border px-20 py-16 cursor-pointer transition bg-grey-10 light:bg-white-95 ${
-                                                contactMethod === "email"
-                                                    ? "border-purple-60"
-                                                    : "border-grey-15 light:border-white-90"
-                                            }`}
-                                        >
-                                            <MdEmail
-                                                size={18}
-                                                className="text-grey-40 light:text-grey-20 shrink-0"
-                                            />
-
-                                            <input
-                                                type="email"
-                                                name="preferredEmail"
-                                                placeholder="Enter Your Email"
-                                                disabled={
-                                                    contactMethod !== "email"
-                                                }
-                                                className="flex-1 bg-transparent outline-none text-white light:text-grey-08 placeholder:text-grey-40 light:placeholder:text-grey-20 disabled:opacity-50"
-                                            />
-
-                                            <input
-                                                type="radio"
-                                                name="contactMethod"
-                                                value="email"
-                                                checked={
-                                                    contactMethod === "email"
-                                                }
-                                                onChange={() =>
-                                                    setContactMethod("email")
-                                                }
-                                                className="w-16 h-16 accent-purple-60"
-                                            />
-                                        </label>
+                                        <InputCard
+                                            name="contactMethod"
+                                            type="radio"
+                                            value="email"
+                                            label="  "
+                                            icon={<MdEmail/>}
+                                            radioPlaceholder="enter your Email"
+                                            onChange={() => setContactMethod("email")}
+                                        />
 
                                     </div>
                                 </div>

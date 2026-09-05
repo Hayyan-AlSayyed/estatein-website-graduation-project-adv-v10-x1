@@ -24,8 +24,8 @@ function InputCard({
     if (type === "radio") {
         return (
             <div className="w-full relative px-10">
-                <p className="text-base lg:text-xl font-semibold text-white light:text-grey-08 mb-10 md:mb-14 lg:mb-16 font-urbanist">
-                    {label}
+                <p className="text-base lg:text-xl font-semibold text-white light:text-grey-08 mb-10 md:mb-14 lg:mb-16 font-urbanist min-h-25">
+                    {label || "\u00A0"}
                 </p>
 
                 <label
@@ -37,6 +37,7 @@ function InputCard({
                         name={name}
                         type="radio"
                         className="peer sr-only"
+                        placeholder={placeholder}
                         onChange={() => setIsSelected(true)}
                     />
 
@@ -49,8 +50,8 @@ function InputCard({
 
                             {isSelected ? (
                                 <input
-                                    type="email"
-                                    placeholder="Enter your email"
+                                    type="text"
+                                    placeholder=""
                                     autoFocus
                                     onClick={(e) => e.stopPropagation()}
                                     className="bg-transparent outline-none text-white light:text-grey-08 text-sm lg:text-lg font-semibold font-urbanist placeholder:text-grey-40 light:placeholder:text-grey-20 w-full"
