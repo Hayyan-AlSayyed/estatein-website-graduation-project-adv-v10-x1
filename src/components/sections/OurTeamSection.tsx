@@ -1,8 +1,8 @@
 import TeamCard from "../TeamCard";
-import member1 from "../../../public/assets/imgs/team/member1.webp"
-import member2 from "../../../public/assets/imgs/team/member2.webp"
-import member3 from "../../../public/assets/imgs/team/member3.webp"
-import member4 from "../../../public/assets/imgs/team/member4.webp"
+import member1 from "/assets/imgs/team/member1.webp"
+import member2 from "/assets/imgs/team/member2.webp"
+import member3 from "/assets/imgs/team/member3.webp"
+import member4 from "/assets/imgs/team/member4.webp"
 import SliderSection from "../Slider/SliderSection"
 import Container from "../Container";
 const teamMembers = [
@@ -46,26 +46,26 @@ const teamMembers = [
 
 export default function OurTeamSection() {
     return (
-            <Container>
+        <Container>
             <section>
-            <SliderSection
-                title="Meet the Estatein Team"
-                desc="At Estatein, our success is driven by the dedication and expertise of our team. Get to know the people behind our mission to make your real estate dreams a reality."
-                desktopCards={4}
-                tabletCards={2}
-                mobileCards={1}
-                showButton={false}
-            >
-                {teamMembers.map((member) => (
-                    <TeamCard
-                        key={member.id}
-                        image={member.image}
-                        name={member.name}
-                        role={member.role}
-                    />
-                ))}
-            </SliderSection>
+                <SliderSection
+                    title="Meet the Estatein Team"
+                    desc="At Estatein, our success is driven by the dedication and expertise of our team. Get to know the people behind our mission to make your real estate dreams a reality."
+                    desktopCards={4}
+                    tabletCards={2}
+                    mobileCards={1}
+                    showButton={false}
+                >
+                    {teamMembers.map((member) => (
+                        <TeamCard
+                            key={member.id}
+                            image={member.image}
+                            name={member.name}
+                            role={member.role}
+                        />
+                    ))}
+                </SliderSection>
             </section>
-            </Container>
+        </Container>
     );
 }

@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState, useCallback, useMemo } from "react";
 import type { SliderProps } from "../../types/sliderType";
 import type { CSSProperties } from "react";
+import { StaggerContainer, StaggerItem } from "../FramerMotion/Animation";
 
 export default function Slider({
   children,
@@ -59,13 +60,17 @@ export default function Slider({
 
   return (
     <div ref={containerRef} className="w-full overflow-hidden mb-30 md:mb-40 lg:mb-50">
-      <div className=" flex gap-(--gap) transition-transform duration-500 ease-in-out w-max pt-6 pb-6 -translate-x-(--tx) " style={trackStyle} >
-        {children.map((child, index) => (
-          <div key={index} className="shrink-0" style={cardStyle}>
-            {child}
-          </div>
-        ))}
-      </div>
+      <StaggerContainer stagger={0.2}>
+        <div className=" flex gap-(--gap) transition-transform duration-500 ease-in-out w-max pt-6 pb-6 -translate-x-(--tx) " style={trackStyle} >
+          {children.map((child, index) => (
+            <StaggerItem>
+              <div key={index} className="shrink-0" style={cardStyle}>
+                {child}
+              </div>
+            </StaggerItem>
+          ))}
+        </div>
+      </StaggerContainer>
     </div>
   );
 }
