@@ -4,6 +4,7 @@ import TextareaInput from "../inputs/TextareaInput";
 import Select from "../inputs/Select";
 import HeaderSection from "../HeaderSection";
 import { TiLocation } from "react-icons/ti";
+import Button from "../AtomComponents/Button";
 
 const InquiryForm = () => {
 
@@ -117,20 +118,18 @@ const InquiryForm = () => {
                 </div>
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-20 xl:gap-50 mt-30 xl:mt-40 2xl:mt-50">
-                    <label className="flex items-center gap-3 cursor-pointer">
-                        <input
-                            type="checkbox"
-                            checked={form.agree}
-                            onChange={(e) => updateField("agree", e.target.checked)}
-                        />
-                        <span className="text-grey-60 text-sm xl:text-[16px] 2xl:text-[18px] font-medium">
-                            I agree with <a href="/" className="underline">Terms of Use</a> and <a href="/" className="underline">Privacy Policy</a>
-                        </span>
-                    </label>
+                        <div className="flex flex-col gap-6">
 
-                    <button type="submit" className="bg-purple-60 py-14 2xl:py-18 md:max-w-250 w-full  rounded-lg text-white light:text-grey-08">
-                        Send Your Message
-                    </button>
+                            <InputCard
+                                type="checkbox"
+                                id="agreeTerms"
+                                name="agreeTerms"
+                            />
+                        </div>
+                        <Button
+                            content="Send Your Message"
+                            className="bg-purple-60 hover:opacity-90 transition text-white font-semibold w-full md:w-auto"
+                        />
                 </div>
 
             </form>
