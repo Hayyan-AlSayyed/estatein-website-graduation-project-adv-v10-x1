@@ -18,7 +18,6 @@ type FormProps = {
     showPropertyFields?: boolean;
 };
 
-<<<<<<< Updated upstream
 type FormSelectValues = {
     preferredLocation: string;
     propertyType: string;
@@ -28,14 +27,7 @@ type FormSelectValues = {
     inquiryType: string;
     hearAboutUs: string;
 };
-=======
-type FormFilterKey =
-    | keyof RootState["properties"]["filters"]
-    | "bathrooms"
-    | "bedrooms"
-    | "inquiryType"
-    | "hearAboutUs";
->>>>>>> Stashed changes
+
 
 const FormSelect = ({
     Icone,
@@ -47,13 +39,9 @@ const FormSelect = ({
 }: {
     Icone: JSX.Element;
     FilterText: string;
-<<<<<<< Updated upstream
     name: keyof FormSelectValues;
     value: string;
     onChange: (value: string) => void;
-=======
-    filterKey: FormFilterKey;
->>>>>>> Stashed changes
     options: string[];
 }) => {
     return (
@@ -95,15 +83,9 @@ const FormSelect = ({
                 <Select
                     Icone={Icone}
                     FilterText={FilterText}
-<<<<<<< Updated upstream
                     name={name}
                     value={value}
                     onChange={onChange}
-=======
-                    filterKey={
-                        filterKey as keyof RootState["properties"]["filters"]
-                    }
->>>>>>> Stashed changes
                     options={options}
                 />
             </div>
