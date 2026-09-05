@@ -1,9 +1,9 @@
-import img1 from "../../../public/assets/imgs/ExploreEstatein' World/Image1.webp";
-import img2 from "../../../public/assets/imgs/ExploreEstatein' World/Image2.webp";
-import img3 from "../../../public/assets/imgs/ExploreEstatein' World/Image3.webp";
-import img4 from "../../../public/assets/imgs/ExploreEstatein' World/Image4.webp";
-import img5 from "../../../public/assets/imgs/ExploreEstatein' World/Image5.webp";
-import img6 from "../../../public/assets/imgs/ExploreEstatein' World/Image6.webp";
+import img1 from "/assets/imgs/ExploreEstatein' World/Image1.webp";
+import img2 from "/assets/imgs/ExploreEstatein' World/Image2.webp";
+import img3 from "/assets/imgs/ExploreEstatein' World/Image3.webp";
+import img4 from "/assets/imgs/ExploreEstatein' World/Image4.webp";
+import img5 from "/assets/imgs/ExploreEstatein' World/Image5.webp";
+import img6 from "/assets/imgs/ExploreEstatein' World/Image6.webp";
 
 import Container from "../Container";
 import HeaderSection from "../HeaderSection";
@@ -18,7 +18,7 @@ function ExploreEstatein() {
           </div>
 
           <div className="group overflow-hidden rounded-2xl">
-            <img src={img3} alt=""  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+            <img src={img3} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
           </div>
 
           <div className="group overflow-hidden rounded-2xl">
@@ -27,11 +27,11 @@ function ExploreEstatein() {
 
           <div className="grid grid-cols-2 gap-10">
             <div className="group overflow-hidden rounded-2xl ">
-              <img src={img4} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
+              <img src={img4} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
             </div>
 
             <div className="group overflow-hidden rounded-2xl object-contain">
-              <img src={img5} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
+              <img src={img5} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
             </div>
           </div>
 
@@ -43,7 +43,7 @@ function ExploreEstatein() {
           </div>
 
           <div className="group max-md:col-span-2 overflow-hidden rounded-2xl pt-20 md:pt-0 ">
-            <img src={img6} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"/>
+            <img src={img6} alt="" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
           </div>
         </div>
       </section>

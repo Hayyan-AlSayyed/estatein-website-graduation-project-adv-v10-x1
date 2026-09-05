@@ -4,6 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { FaGraduationCap, FaUsers } from "react-icons/fa6";
 import type { ValueItem } from "../../types/ValueCards";
 import HeaderSection from "../HeaderSection";
+import { StaggerContainer, StaggerItem } from "../FramerMotion/Animation";
 
 const VALUES_DATA: ValueItem[] = [
   {
@@ -39,7 +40,7 @@ const VALUES_DATA: ValueItem[] = [
 export const OurValuesSection = () => {
   return (
     <Container>
-      <section className="flex flex-col">
+      <StaggerContainer className="flex flex-col">
         <div className="flex flex-col min-[992px]:flex-row min-[992px]:items-stretch gap-40 min-[768px]:gap-60 min-[992px]:gap-80">
           <div className="min-[992px]:flex-2 flex flex-col justify-center">
             <HeaderSection
@@ -48,21 +49,21 @@ export const OurValuesSection = () => {
             />
           </div>
           <div className="min-[992px]:flex-3 bg-grey-08 light:bg-white-99 ring-8 ring-grey-09 light:ring-white-97 border border-grey-15 light:border-white-90 rounded-2xl p-10 grid grid-cols-1 min-[992px]:grid-cols-2">
-            <div className="min-[992px]:border-r border-b border-grey-15 light:border-white-90 pb-20 min-[992px]:pb-20 min-[992px]:pr-20 rounded-tl-xl hover:bg-grey-15 light:hover:bg-white-90 transition-colors">
+            <StaggerItem className="min-[992px]:border-r border-b border-grey-15 light:border-white-90 pb-20 min-[992px]:pb-20 min-[992px]:pr-20 rounded-tl-xl hover:bg-grey-15 light:hover:bg-white-90 transition-colors">
               <ValueCard {...VALUES_DATA[0]} />
-            </div>
-            <div className="border-b border-grey-15 light:border-white-90 pb-20 min-[992px]:pb-20 min-[992px]:pl-20 rounded-tr-xl hover:bg-grey-15 light:hover:bg-white-90 transition-colors">
+            </StaggerItem>
+            <StaggerItem className="border-b border-grey-15 light:border-white-90 pb-20 min-[992px]:pb-20 min-[992px]:pl-20 rounded-tr-xl hover:bg-grey-15 light:hover:bg-white-90 transition-colors">
               <ValueCard {...VALUES_DATA[1]} />
-            </div>
-            <div className="border-b min-[992px]:border-b-0 min-[992px]:border-r border-grey-15 light:border-white-90 pt-20 pb-20 min-[992px]:pb-0 min-[992px]:pr-20 rounded-bl-xl hover:bg-grey-15 light:hover:bg-white-90 transition-colors">
+            </StaggerItem>
+            <StaggerItem className="border-b min-[992px]:border-b-0 min-[992px]:border-r border-grey-15 light:border-white-90 pt-20 pb-20 min-[992px]:pb-0 min-[992px]:pr-20 rounded-bl-xl hover:bg-grey-15 light:hover:bg-white-90 transition-colors">
               <ValueCard {...VALUES_DATA[2]} />
-            </div>
-            <div className="pt-20 min-[992px]:pl-20 rounded-br-xl hover:bg-grey-15 light:hover:bg-white-90 transition-colors">
+            </StaggerItem>
+            <StaggerItem className="pt-20 min-[992px]:pl-20 rounded-br-xl hover:bg-grey-15 light:hover:bg-white-90 transition-colors">
               <ValueCard {...VALUES_DATA[3]} />
-            </div>
+            </StaggerItem>
           </div>
         </div>
-      </section>
+      </StaggerContainer>
     </Container>
   );
 };
